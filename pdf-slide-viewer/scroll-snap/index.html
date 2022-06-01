@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Scroll Snap Demo</title>
+    <style>
+      :root {
+        --slide-width: 80%;
+        --gap: 10px;
+        --slide-margin: calc((100% - var(--slide-width) - var(--gap) * 2) / 2);
+      }
+      .carousel {
+        border: 1px solid gray;
+        width: min(100%, 540px);
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        display: flex;
+        flex-flow: row nowrap;
+        gap: var(--gap);
+      }
+      .carousel > img {
+        scroll-snap-align: center;
+        flex: 0 0 var(--slide-width);
+      }
+      .carousel > img:first-child {
+        margin-left: var(--slide-margin);
+      }
+      .carousel > img:last-child {
+        margin-right: var(--slide-margin);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Scroll Snap Demo</h1>
+    <a href="https://github.com/honai/demos/">Source</a>
+    <div class="carousel">
+      <img src="./carousel-1.png" alt="Page 1" />
+      <img src="./carousel-2.png" alt="Page 2" />
+      <img src="./carousel-3.png" alt="Page 3" />
+      <img src="./carousel-4.png" alt="Page 3" />
+    </div>
+  </body>
+</html>
